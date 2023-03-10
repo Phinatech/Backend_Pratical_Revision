@@ -1,0 +1,29 @@
+First
+
+.use is middlewares that is given to us bu express to use during middlewares
+
+you create your 
+.env
+.gitignore
+
+and you create your 
+app.ts
+
+2 prepare your sever
+3 create your port in your env for our index to able to access or env we have  to create a folder call config and inside config we will have index.ts
+4 we export to our enviroment variable to our index.ts in our config and we export to our index.ts server
+
+5 create your application which are your middlewares
+
+6 create your routes
+7 and create your error center Error Center. for every header centain things are important 
+
+**context type 
+
+ENUM HELPS US DECLARE CONSTANT IN TYPESCRPIT THAT WIL NOT CAHNAGE VALUE
+
+after creating your centerError system your create your middlewares
+the middleware is the folder that most folder
+
+note:Dont important any other routes under your all routes
+you can use for your package.json   "start": "nodemon ./src/index.ts"
