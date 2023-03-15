@@ -3,12 +3,17 @@ import cors from "cors";
 import morgan from "morgan";
 import { errorHandler } from "./Middlewares/errorhandler";
 import { AppError, HttpCode } from "./utils/AppError";
+import api from "./api/index";
 
 export const appConfig = (app: Application) => {
   app
     .use(express.json())
     .use(cors())
     .use(morgan("dev"))
+
+    //Api end point
+    .use("/api", api)
+
     // check for not found route
     .all("*", (req: Request, res: Response, next: NextFunction) => {
       next(

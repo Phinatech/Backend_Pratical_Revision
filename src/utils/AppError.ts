@@ -37,7 +37,6 @@ export class AppError extends Error {
     if (args.isOperational !== undefined) {
       this.isOperational = args.isOperational;
     }
-
     Error.captureStackTrace(this);
   }
 }
