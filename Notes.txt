@@ -32,6 +32,16 @@ you can use for your package.json   "start": "nodemon ./src/index.ts"
 9 creating validator and user validator 
 validator - userSchema - uservalidator
 
+10 controller
+
+before controller you create your asynchandler inside your utils
+create your bcrypt to hash your password
+to keep your login simple it adviceable your hash your password in your model
+
+//the import of async handler and appError is to avoid using return too many times 
+11 create your routes
+
+
 
 
 
