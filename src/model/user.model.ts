@@ -1,6 +1,7 @@
 import { Schema, model } from "mongoose";
 import { IUser } from "../Interface/User.interface";
 import isEmail from "validator/lib/isEmail";
+import bcrypt from "bcrypt";
 
 const UserSchema: Schema<IUser> = new Schema(
   {
@@ -24,6 +25,7 @@ const UserSchema: Schema<IUser> = new Schema(
     },
 
     role: {
+      type: String,
       enum: ["user", "admin", "manage"],
       default: "user",
       message: "You must either be a user,an admin or manger",
@@ -31,5 +33,16 @@ const UserSchema: Schema<IUser> = new Schema(
   },
   { timestamps: true }
 );
+
+//this is a copy of the username or making referance to it
+UserSchema.pre("save", async function (next) {
+  let user = this;
+  if (!user.isModified("password")) next();
+  const salt = await bcrypt.genSalt(12);
+  user.password = await bcrypt.hash(user.password, salt);
+  user.comfirmPassword = user.password;
+  next();
+});
+
 const userModel = model<IUser>("User", UserSchema);
 export default userModel;

@@ -22,7 +22,7 @@ export const validator = (
           })
         )
       : next();
-  } catch (error) {
+  } catch (error: any) {
     next(
       new AppError({
         httpCode: HttpCode.UNPROCESSEDABLE_IDENTITY,
